@@ -8,6 +8,9 @@ namespace TCP_Terminal
 {
     class TCP_Server
     {
-
+        public string Connect(string IP_Adress)
+        {
+            return "listening on " + IP_Adress;
+        }
     }
 }

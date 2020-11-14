@@ -9,8 +9,9 @@ namespace TCP_Terminal
     class TCP_Client
     {
 
-        public void Connect(string IP_Adress)
+        public string Connect(string IP_Adress)
         {
+            return "connected to " + IP_Adress;
         }
     }
 }

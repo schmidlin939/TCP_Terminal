@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="300">
     <Grid>
-        <TextBox x:Name="boxIP" HorizontalAlignment="Left" Height="25" Margin="75,50,0,0" TextWrapping="Wrap" Text="IP-Adress" VerticalAlignment="Top" Width="150" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <TextBox x:Name="txtBoxIP" HorizontalAlignment="Left" Height="25" Margin="75,50,0,0" TextWrapping="Wrap" Text="IP-Adress" VerticalAlignment="Top" Width="150" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
         <CheckBox x:Name="cbkServer" Content="Server" HorizontalAlignment="Left" Margin="75,100,0,0" VerticalAlignment="Top" Checked="cbkServer_Checked"/>
         <CheckBox x:Name="cbkClient" Content="Client" HorizontalAlignment="Left" Margin="175,100,0,0" VerticalAlignment="Top" Checked="cbkClient_Checked"/>
         <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="75,150,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="btnConnect_Click"/>

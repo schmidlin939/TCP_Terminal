@@ -20,10 +20,11 @@ namespace TCP_Terminal
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool server = false;
-        bool client = false;
-        string IP_Adress;
+        bool isServer = false;
+        bool isClient = false;
 
+        TCP_Client client = new TCP_Client();
+        TCP_Server server = new TCP_Server();
 
         public MainWindow()
         {
@@ -32,7 +33,14 @@ namespace TCP_Terminal
 
          private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-
+            if (isServer)
+            {
+               txtInfo.Text = server.Connect(txtBoxIP.Text);
+            }
+            if (isClient)
+            {
+                txtInfo.Text = client.Connect(txtBoxIP.Text);
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -42,12 +50,14 @@ namespace TCP_Terminal
 
         private void cbkServer_Checked(object sender, RoutedEventArgs e)
         {
-
+            isClient = false;
+            isServer = true;
         }
 
         private void cbkClient_Checked(object sender, RoutedEventArgs e)
         {
-
+            isClient = true;
+            isServer = false;
         }
     }
 }
