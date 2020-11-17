@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TCP_Terminal"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="300">
+        Title="MainWindow" Height="250" Width="300">
     <Grid>
-        <TextBox x:Name="txtBoxIP" HorizontalAlignment="Left" Height="25" Margin="75,50,0,0" TextWrapping="Wrap" Text="IP-Adress" VerticalAlignment="Top" Width="150" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
-        <CheckBox x:Name="cbkServer" Content="Server" HorizontalAlignment="Left" Margin="75,100,0,0" VerticalAlignment="Top" Checked="cbkServer_Checked"/>
-        <CheckBox x:Name="cbkClient" Content="Client" HorizontalAlignment="Left" Margin="175,100,0,0" VerticalAlignment="Top" Checked="cbkClient_Checked"/>
-        <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="75,150,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="btnConnect_Click"/>
-        <TextBlock x:Name="txtInfo" HorizontalAlignment="Left" Margin="128,248,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBoxIP" HorizontalAlignment="Left" Height="25" Margin="30,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center" ToolTip="IP-Adress"/>
+        <TextBox x:Name="txtBoxPort" HorizontalAlignment="Left" Height="25" Margin="30,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" TextAlignment="Center" ToolTip="Port"/>
+        <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="50" Margin="30,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextAlignment="Center" ToolTip="Message"/>
+        <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="200,20,0,0" VerticalAlignment="Top" Width="60" Height="25" Click="btnConnect_Click"/>
+        <Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="200,173,0,0" VerticalAlignment="Top" Width="60" Height="25" Click="btnSend_Click"/>
+        <Button x:Name="btnDisconnect" Content="Disonnect" HorizontalAlignment="Left" Margin="200,55,0,0" VerticalAlignment="Top" Width="60" Height="25" Click="btnDisconnect_Click"/>
     </Grid>
 </Window>

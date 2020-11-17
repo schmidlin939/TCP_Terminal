@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
 
 namespace TCP_Terminal
 {
@@ -20,44 +23,29 @@ namespace TCP_Terminal
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool isServer = false;
-        bool isClient = false;
-
         TCP_Client client = new TCP_Client();
-        TCP_Server server = new TCP_Server();
-
+        
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();        
         }
 
-         private void btnConnect_Click(object sender, RoutedEventArgs e)
+        public void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            if (isServer)
-            {
-               txtInfo.Text = server.Connect(txtBoxIP.Text);
-            }
-            if (isClient)
-            {
-                txtInfo.Text = client.Connect(txtBoxIP.Text);
-            }
+            client.connect(txtBoxIP.Text, Int32.Parse(txtBoxPort.Text));
+            return;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        public void btnDisconnect_Click(object sender, RoutedEventArgs e)
         {
-            
+            client.disconnect();
+            return;
         }
 
-        private void cbkServer_Checked(object sender, RoutedEventArgs e)
+        public void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            isClient = false;
-            isServer = true;
-        }
-
-        private void cbkClient_Checked(object sender, RoutedEventArgs e)
-        {
-            isClient = true;
-            isServer = false;
+            client.send(txtMessage.Text);
+            return;
         }
     }
 }
