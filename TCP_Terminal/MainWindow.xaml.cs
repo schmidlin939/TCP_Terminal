@@ -45,6 +45,7 @@ namespace TCP_Terminal
         public void btnSend_Click(object sender, RoutedEventArgs e)
         {
             client.send(txtMessage.Text);
+            txtMessage.Clear();
             return;
         }
     }

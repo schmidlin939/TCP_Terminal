@@ -14,14 +14,16 @@ namespace TCP_Terminal
     {
 
         // generating object from TcpClient class
-        TcpClient client = new TcpClient();
-        
+        TcpClient client;
+        NetworkStream stream;
 
         public void connect(string IP, int Port)
         {
             try
             {
+                client = new TcpClient();
                 client.Connect(IP, Port);
+                stream = client.GetStream();
                 return;
             }
             catch (ObjectDisposedException)
@@ -35,12 +37,6 @@ namespace TCP_Terminal
             }
         }
 
-        public void disconnect()
-        {
-            client.Close();
-            return;
-        }
-
         public void send(string message)
         {
             try
@@ -52,8 +48,6 @@ namespace TCP_Terminal
                 //  Stream stream = client.GetStream();
                 try
                 {
-                    NetworkStream stream = client.GetStream();
-
                     // Send the message to the connected TcpServer.
                     stream.Write(data, 0, data.Length);
                     /*
@@ -81,6 +75,20 @@ namespace TCP_Terminal
             catch (SocketException)
             {
             }
+        }
+
+        public void disconnect()
+        {
+            try
+            {
+            client.Close();
+            stream.Close();
+            }
+            catch(NullReferenceException )
+            {
+                Trace.WriteLine("NullReferenceException");
+            }
+            return;
         }
     }
 }
